@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColdrunTrucks.Api", "ColdrunTrucks.Api\ColdrunTrucks.Api.csproj", "{B10773DC-3A98-42B0-BF8B-9CE7F3AAC829}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B10773DC-3A98-42B0-BF8B-9CE7F3AAC829}.Debug|x64.ActiveCfg = Debug|x64
+		{B10773DC-3A98-42B0-BF8B-9CE7F3AAC829}.Debug|x64.Build.0 = Debug|x64
+		{B10773DC-3A98-42B0-BF8B-9CE7F3AAC829}.Release|x64.ActiveCfg = Release|x64
+		{B10773DC-3A98-42B0-BF8B-9CE7F3AAC829}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86B5D529-5FFD-4D5B-998D-68439FFA0110}
+	EndGlobalSection
+EndGlobal
