@@ -1,26 +1,21 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace ColdrunTrucks.Core.Models
+namespace ColdrunTrucks.Api.Models
 {
-    public interface ITruck
-    {
-        string Code { get; }
-        string Name { get; }
-        TruckStatus Status { get; }
-        string? Description { get; }
-        public string GetTruckStatus();
-        public void SetTruckStatus(TruckStatus status);
-    }
-
-    public class Truck : ITruck
+    public class Truck
     {
         private readonly Dictionary<TruckStatus, string> _statuses;
 
+        [Key]
         public string Code { get; set; }
 
         public string Name { get; set; }
@@ -28,7 +23,6 @@ namespace ColdrunTrucks.Core.Models
         public TruckStatus Status { get; private set; }
 
         public string? Description { get; set; }
-
 
         public Truck(string code, string name, TruckStatus status, string description)
         {
@@ -55,6 +49,14 @@ namespace ColdrunTrucks.Core.Models
                 Status = newStatus;
             else 
                 throw new InvalidTruckStatusException(string.Format("Invalid truck status. Current status:{0}, given status:{1}", GetTruckStatus(), newStatus));
+        }
+
+        public void SetNextStatus()
+        {
+            if (Status == TruckStatus.Returning)
+                Status = TruckStatus.Loading;
+            else
+                Status = (TruckStatus)((int)Status + 1);
         }
     }
 
